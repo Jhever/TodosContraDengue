@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Criar Conta</h1>
+    <form id="formulario-criar-conta">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required aria-required="true">
+        <br>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" required aria-required="true">
+        <br>
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" required aria-required="true">
+        <br>
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" required aria-required="true">
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+            <option value="prefiro_nao_responder">Prefiro não responder</option>
+        </select>
+        <br>
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" required aria-required="true">
+        <br>
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" required aria-required="true">
+        <br>
+        <label for="rua">Rua:</label>
+        <input type="text" id="rua" required aria-required="true">
+        <br>
+        <label for="numero">Número:</label>
+        <input type="number" id="numero" required aria-required="true">
+        <br>
+        <label for="tipoUsuario">Tipo de Usuário:</label>
+        <select id="tipoUsuario" required aria-required="true">
+            <option value="usuario">Usuário</option>
+            <option value="vigilancia_sanitaria">Vigilância Sanitária</option>
+        </select>
+        <br>
+        <button type="submit">Criar Conta</button>
+    </form>
+    <p id="mensagem"></p>
+    <script src="js/script_criar_conta.js"></script>
+</body>
+</html>
