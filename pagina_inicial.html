@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Página Inicial</h1>
+        <nav>
+            <div class="pagina_inicial">
+                <div class="icones-configuracao">
+                    <i class="configuracao" onclick="toggleMenu()"></i>
+                    <div class="config-menu" id="config-menu">
+                        <button onclick="perfil()">Perfil</button>
+                        <button onclick="logout()">Sair</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="casos">
+            <h2>Casos Recentes</h2>
+            <!-- Lista de casos aqui -->
+        </section>
+        
+        <section id="forum">
+            <h2>Fórum</h2>
+            <form id="formulario-perguntas">
+                <input type="text" id="pergunta-titulo" placeholder="Digite sua pergunta">
+                <textarea id="pergunta-conteudo" placeholder="Detalhe sua pergunta" required></textarea>
+                <button type="submit">Enviar Pergunta</button>
+            </form>
+            <div id="perguntas-lista">
+                <!-- Perguntas e respostas aqui -->
+            </div>
+        </section>
+    </main>
+
+    <script src="js/pagina_inicial.js"></script>
+</body>
+</html>
