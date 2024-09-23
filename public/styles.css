@@ -197,3 +197,7 @@ button:hover {
     background: #f0f0f0;
 }
 
+button a {
+    color: inherit; /* Mantém a cor do texto do botão */
+    text-decoration: none; /* Remove o sublinhado */
+}

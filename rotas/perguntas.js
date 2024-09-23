@@ -28,7 +28,7 @@ const authMiddleware = (req, res, next) => {
 // Rota para obter todas as perguntas
 rota.get('/', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM perguntas');
+        const result = await pool.query('SELECT * FROM perguntas'); // Corrigido para usar 'perguntas'
         res.json(result.rows);
     } catch (error) {
         console.error('Erro ao obter perguntas:', error);
@@ -37,7 +37,7 @@ rota.get('/', async (req, res) => {
 });
 
 // Rota para receber perguntas
-rota.post('/', authMiddleware, async (req, res) => { // Adiciona o middleware de autenticação
+rota.post('/', authMiddleware, async (req, res) => {
     const { pergunta } = req.body;
     const email = req.user.email;
 
@@ -46,12 +46,11 @@ rota.post('/', authMiddleware, async (req, res) => { // Adiciona o middleware de
     }
 
     try {
-        // Verificar tipo de usuário
         const result = await pool.query('SELECT tipoUsuario FROM usuario1 WHERE email = $1', [email]);
         const tipoUsuario = result.rows[0]?.tipoUsuario;
 
         if (tipoUsuario === 'usuario' || tipoUsuario === 'vigilancia sanitaria') {
-            await pool.query('INSERT INTO perguntas (conteudo, usuario_email) VALUES ($1, $2)', [pergunta, email]);
+            await pool.query('INSERT INTO perguntas (conteudo, usuario_email) VALUES ($1, $2)', [pergunta, email]); // Corrigido para usar 'perguntas'
             return res.status(201).send('Pergunta recebida');
         } else {
             return res.status(403).send('Acesso negado.');
@@ -63,7 +62,7 @@ rota.post('/', authMiddleware, async (req, res) => { // Adiciona o middleware de
 });
 
 // Rota para responder perguntas (apenas para vigilância sanitária)
-rota.post('/responder', authMiddleware, async (req, res) => { // Adiciona o middleware de autenticação
+rota.post('/responder', authMiddleware, async (req, res) => {
     const { perguntaId, resposta } = req.body;
     const email = req.user.email;
 

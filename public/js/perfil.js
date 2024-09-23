@@ -137,4 +137,32 @@ if (perfilForm) {
             alert('Erro ao conectar ao servidor.');
         }
     });
+    function logout() {
+        // Verifica se o usuário está logado
+        const token = localStorage.getItem('token'); // ou sessionStorage.getItem('token');
+        if (token) {
+            // Lógica para sair da conta
+            localStorage.removeItem('token');
+            fetch('/api/logout', { 
+                method: 'POST', 
+                headers:{ 
+                    'Authorization': 
+                    `Bearer ${token}` 
+                }})
+                .then(response => {
+                    if (response.ok) {
+                        alert('Você saiu da conta!');
+                    } else {
+                        alert('Erro ao sair da conta. Tente novamente.');
+                    }
+                })
+                .finally(() => {
+                    // Redireciona para a página de login
+                    window.location.href = './index.html'; // Caminho correto da sua página de login
+                });
+        } else {
+            alert('Você não está logado.');
+            window.location.href = './index.html'; // Redireciona mesmo se não houver token
+        }
+    }
 }
