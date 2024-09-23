@@ -10,8 +10,15 @@
     <header>
         <h1>Bem-vindo à Página Inicial</h1>
         <nav>
-            <a href="/perfil">Meu Perfil</a>
-            <a href="/sair">Sair</a>
+            <div class="pagina_inicial">
+                <div class="icones-configuracao">
+                    <i class="configuracao" onclick="toggleMenu()"></i>
+                    <div class="config-menu" id="config-menu">
+                        <button onclick="perfil()">Perfil</button>
+                        <button onclick="logout()">Sair</button>
+                    </div>
+                </div>
+            </div>
         </nav>
     </header>
     
@@ -22,10 +29,10 @@
         </section>
         
         <section id="forum">
-            <h2>Forum</h2>
+            <h2>Fórum</h2>
             <form id="formulario-perguntas">
-                <input type="text" id="pergunta" placeholder="Digite sua pergunta">
-                <textarea id="pergunta" required></textarea>
+                <input type="text" id="pergunta-titulo" placeholder="Digite sua pergunta">
+                <textarea id="pergunta-conteudo" placeholder="Detalhe sua pergunta" required></textarea>
                 <button type="submit">Enviar Pergunta</button>
             </form>
             <div id="perguntas-lista">

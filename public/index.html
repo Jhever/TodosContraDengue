@@ -5,22 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Todos Contra Dengue</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
+    <div class="overlay">
         <form id="formulario-login">
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required aria-required="true">
-            
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required aria-required="true">
-            
-            <button type="submit">Entrar</button>
+            <div class="con">
+                <header class="head-form">
+                    <h2>Entrar</h2>
+                    <p>Entre aqui usando seu e-mail e senha</p>
+                </header>
+                <div class="field-set">
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <input class="form-input" id="email" type="email" placeholder="E-mail" required>
+                    <br>
+                    <span class="input-item">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input class="form-input" type="password" placeholder="Senha" id="password" name="password" required>
+                    <span>
+                        <i class="fa fa-eye" aria-hidden="true" type="button" id="eye"></i>
+                    </span>
+                    <br>
+                    <button class="log-in" type="submit">Entrar</button>
+                </div>
+                <div class="other">
+                    <button type="button" class="btn submits frgt-pass" id="esqueci-senha">Esqueci a Senha</button>
+                    <button type="button" class="btn submits sign-up" id="criar-conta">Criar Conta
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
         </form>
         <p id="mensagem-erro"></p>
-        <a href="criar_conta.html" id="criar-conta">Criar Login</a>
-        <a href="recuperar_senha" id="esqueci-senha">Esqueci a Senha></a>
     </div>
     <script src="js/script.js"></script>
 </body>

@@ -18,5 +18,25 @@ const pool = new Pool({
     port: 5432,                 // Porta padrão do PostgreSQL
 });
 
+// Função para atualizar o perfil
+const atualizarPerfil = async (email, telefone, sexo, cidade, bairro, rua, numero, tipoUsuario, nome) => {
+  const query = `
+      UPDATE usuario1 SET 
+          telefone = $1,
+          sexo = $2,
+          cidade = $3,
+          bairro = $4,
+          rua = $5,
+          numero = $6,
+          tipoUsuario = $7,
+          nome = $8
+      WHERE email = $9
+  `;
+  const values = [telefone, sexo, cidade, bairro, rua, numero, tipoUsuario, nome, email];
+
+  const result = await pool.query(query, values);
+  return result.rowCount > 0;
+};
+
 module.exports = pool;
 

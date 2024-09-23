@@ -9,40 +9,60 @@
 <body>
     <h1>Criar Conta</h1>
     <form id="formulario-criar-conta">
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required aria-required="true" placeholder="Seu nome">
+        <br>
+
         <label for="email">E-mail:</label>
-        <input type="email" id="email" required aria-required="true">
+        <input type="email" id="email" required aria-required="true" placeholder="Seu email">
         <br>
+
         <label for="senha">Senha:</label>
-        <input type="password" id="senha" required aria-required="true">
+        <input type="password" id="senha" required aria-required="true" placeholder="Sua senha">
         <br>
+
+        <label for="senhaConfirmacao">Confirme sua Senha:</label>
+        <input type="password" id="senhaConfirmacao" required aria-required="true" placeholder="Confirme Sua Senha">
+        <br>
+
         <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" required aria-required="true">
+        <input type="text" id="telefone" required aria-required="true" placeholder="Seu Telefone">
         <br>
-        <label for="sexo">Sexo:</label>
-        <select id="sexo" required aria-required="true">
-            <option value="masculino">Masculino</option>
-            <option value="feminino">Feminino</option>
-            <option value="prefiro_nao_responder">Prefiro não responder</option>
-        </select>
+
+        <label>Gênero:</label>
+        <input type="radio" id="masculino" name="genero" value="masculino">
+        <label for="masculino">Masculino</label>
+        <input type="radio" id="feminino" name="genero" value="feminino">
+        <label for="feminino">Feminino</label>
+        <input type="radio" id="outro" name="genero" value="outro">
+        <label for="outro">Outro</label>
         <br>
+
         <label for="cidade">Cidade:</label>
-        <input type="text" id="cidade" required aria-required="true">
+        <input type="text" id="cidade" required aria-required="true" placeholder="Sua Cidade">
         <br>
+
         <label for="bairro">Bairro:</label>
-        <input type="text" id="bairro" required aria-required="true">
+        <input type="text" id="bairro" required aria-required="true" placeholder="Seu Bairro">
         <br>
+
         <label for="rua">Rua:</label>
-        <input type="text" id="rua" required aria-required="true">
+        <input type="text" id="rua" required aria-required="true" placeholder="Sua Rua">
         <br>
+
         <label for="numero">Número:</label>
-        <input type="number" id="numero" required aria-required="true">
+        <input type="number" id="numero" required aria-required="true" placeholder="Numero da sua Casa">
         <br>
+
         <label for="tipoUsuario">Tipo de Usuário:</label>
-        <select id="tipoUsuario" required aria-required="true">
+        <select name="tipoUsuario" id="tipoUsuario" required aria-required="true">
+            <option value="" selected disabled>Selecione uma das opções</option>
             <option value="usuario">Usuário</option>
             <option value="vigilancia_sanitaria">Vigilância Sanitária</option>
         </select>
         <br>
+
         <button type="submit">Criar Conta</button>
     </form>
     <p id="mensagem"></p>
