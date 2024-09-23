@@ -14,7 +14,7 @@
                 <div class="icones-configuracao">
                     <i class="configuracao" onclick="toggleMenu()"></i>
                     <div class="config-menu" id="config-menu">
-                        <button onclick="perfil()">Perfil</button>
+                        <button onclick="botao_perfil()">Ver meu Perfil</button>
                         <button onclick="logout()">Sair</button>
                     </div>
                 </div>
@@ -29,15 +29,20 @@
         </section>
         
         <section id="forum">
-            <h2>Fórum</h2>
-            <form id="formulario-perguntas">
-                <input type="text" id="pergunta-titulo" placeholder="Digite sua pergunta">
-                <textarea id="pergunta-conteudo" placeholder="Detalhe sua pergunta" required></textarea>
+            <div>
+            <form id="perguntaForm">
+                <input type="text" id="pergunta" placeholder="Faça sua pergunta">
                 <button type="submit">Enviar Pergunta</button>
             </form>
-            <div id="perguntas-lista">
-                <!-- Perguntas e respostas aqui -->
             </div>
+            
+            <!-- Formulário de Resposta -->
+             <div>
+            <form id="respostaForm" style="display: none;">
+                <input type="text" id="resposta" placeholder="Sua resposta">
+                <button type="submit">Enviar Resposta</button>
+            </form>
+        </div>
         </section>
     </main>
 

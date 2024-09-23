@@ -1,19 +1,22 @@
 {
-    "name":"projeto-dengue",
-    "version":"1.0.0",
-    "description":"",
-    "main":"dist/app.js",
-    "author":"Jheverson A. Silva, João Pedro Gracik e outros",
-"scripts":{"start":"node src/server.js",
-"build":"tsc"
-},
-
-"dependencies":
-{
-    "bcryptjs":"^2.4.3",
-"cors":"^2.8.5",
-"dotenv":"^16.4.5",
-"electron":"^32.1.0",
-"express":"^4.21.0",
-"nodemailer":"^6.9.15",
-"pg":"^8.12.0"}}
+    "name": "projeto-dengue",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/app.js",
+    "author": "Jheverson A. Silva, João Pedro Gracik e outros",
+    "scripts": {
+        "start": "node src/server.js",
+        "build": "tsc"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "electron": "^32.1.0",
+        "express": "^4.21.0",
+        "i": "^0.3.7",
+        "multer": "^1.4.5-lts.1",
+        "nodemailer": "^6.9.15",
+        "pg": "^8.12.0"
+    }
+}

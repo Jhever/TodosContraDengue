@@ -10,9 +10,8 @@ function createWindow() {
         width: 800,
         height: 600,
         webPreferences: {
-            nodeIntegration: true, // Permitir integração Node.js
+            nodeIntegration: true,
             contextIsolation: false,
-            // preload: path.join(__dirname, 'preload.js') // Preload opcional
         }
     });
 

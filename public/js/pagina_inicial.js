@@ -1,11 +1,11 @@
 function toggleMenu() {
-    const menu = document.getElementById('settingsMenu');
+    const menu = document.getElementById('config-menu');
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
 }
 
-function viewProfile() {
+function botao_perfil() {
     // Redireciona para a página de perfil
-    window.location.href = 'perfil.html'; // Altere para o caminho correto da sua página de perfil
+    window.location.href = 'perfil.html'; // Caminho correto da sua página de perfil
 }
 
 function logout() {
@@ -14,27 +14,27 @@ function logout() {
     if (token) {
         // Lógica para sair da conta
         localStorage.removeItem('token');
-        fetch('/api/logout', { method: 'POST', headers: { 'Authorization': `Bearer ${token}` } })
+        fetch('/api/logout', { 
+            method: 'POST', 
+            headers: { 
+                'Authorization': `Bearer ${token}` 
+            }
+        })
         .then(response => {
             if (response.ok) {
                 alert('Você saiu da conta!');
-                } else {
-                     alert('Erro ao sair da conta. Tente novamente.');
-                 }
-                })
-            .finally(() => {
+            } else {
+                alert('Erro ao sair da conta. Tente novamente.');
+            }
+        })
+        .finally(() => {
             // Redireciona para a página de login
-                window.location.href = './index.html'; // Altere para o caminho correto da sua página de login
-            });
+            window.location.href = './index.html'; // Caminho correto da sua página de login
+        });
     } else {
         alert('Você não está logado.');
         window.location.href = './index.html'; // Redireciona mesmo se não houver token
     }
-}
-
-function perfil() {
-    // Lógica para mostrar o perfil do usuário
-    alert('Exibindo perfil!');
 }
 
 // Carregar perguntas
@@ -42,9 +42,8 @@ async function loadPerguntas() {
     try {
         const response = await fetch('http://localhost:3000/perguntas', {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ perguntas })
-        });        
+            headers: { 'Content-Type': 'application/json' }
+        });
         const perguntas = await response.json();
         const perguntaLista = document.getElementById('perguntas-lista');
 
@@ -52,7 +51,7 @@ async function loadPerguntas() {
 
         perguntas.forEach(pergunta => {
             const div = document.createElement('div');
-            div.textContent = pergunta.perguntas;
+            div.textContent = pergunta.titulo; // Certifique-se de que isso corresponda à estrutura do seu objeto de perguntas
             perguntaLista.appendChild(div);
         });
     } catch (err) {
@@ -61,25 +60,29 @@ async function loadPerguntas() {
 }
 
 // Enviar nova pergunta
-document.getElementById('formulario-pergunta').addEventListener('submit', async function (event) {
+document.getElementById('formulario-perguntas').addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    const pergunta = document.getElementById('perguntas').value;
+    const perguntaTitulo = document.getElementById('pergunta-titulo').value; // Atualize para o campo correto
+    const perguntaConteudo = document.getElementById('pergunta-conteudo').value; // Atualize para o campo correto
 
     try {
         const response = await fetch('http://localhost:3000/perguntas', {
-            method: 'GET',
+            method: 'POST', // Mude para POST se você estiver criando uma nova pergunta
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ pergunta })
+            body: JSON.stringify({ titulo: perguntaTitulo, conteudo: perguntaConteudo })
         });
 
         if (response.ok) {
-            loadPerguntas(); // Atualizar a lista de perguntas
+            alert('Pergunta enviada com sucesso!');
+            loadPerguntas(); // Atualiza a lista de perguntas
         } else {
-            console.error('Erro ao enviar a perguntas');
+            console.error('Erro ao enviar a pergunta');
+            alert('Erro ao enviar a pergunta. Tente novamente.');
         }
     } catch (err) {
         console.error('Erro ao conectar ao servidor', err);
+        alert('Erro ao conectar ao servidor. Tente novamente.');
     }
 });
 
