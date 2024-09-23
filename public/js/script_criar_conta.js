@@ -8,8 +8,8 @@ document.getElementById('formulario-criar-conta').addEventListener('submit', asy
     const cidade = document.getElementById('cidade').value;
     const bairro = document.getElementById('bairro').value;
     const rua = document.getElementById('rua').value;
-    const numero = document.getElementById('numero').value; // Corrigido de numero_casa para numero
-    const tipoUsuario = document.getElementById('tipoUsuario').value; // Corrigido de tipo_usuario para tipoUsuario
+    const numero = document.getElementById('numero').value;
+    const tipoUsuario = document.getElementById('tipoUsuario').value; 
 
     try {
         const response = await fetch('http://localhost:3000/criar-conta', {
@@ -25,9 +25,12 @@ document.getElementById('formulario-criar-conta').addEventListener('submit', asy
 
         if (response.ok) {
             // Redirecionar para a página de login ou outra página de sucesso
-            window.location.href = '/login';
+            window.location.href = '/index.html';  // Caminho relativo ao servidor
         }
-    } catch (error) {
-        document.getElementById('mensagem').textContent = 'Erro ao criar conta';
+        
+    } catch (err) {
+        console.error('Erro ao criar conta:', err);
+        console.error(err.stack); 
+        res.status(500).send('Erro ao criar conta.');
     }
 });

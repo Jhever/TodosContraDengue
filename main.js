@@ -12,7 +12,7 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true, // Permitir integração Node.js
             contextIsolation: false,
-            preload: path.join(__dirname, 'preload.js') // Preload opcional
+            // preload: path.join(__dirname, 'preload.js') // Preload opcional
         }
     });
 
